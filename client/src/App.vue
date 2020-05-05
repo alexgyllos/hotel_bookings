@@ -27,11 +27,13 @@ export default {
     });
 
     eventBus.$on('delete-booking', (id) => {
-      BookingService.deleteBooking(id)
-      .then(() => {
-        const index = this.bookings.findIndex(booking => booking._id === id);
-        this.bookings.slice(index, 1);
-      });
+      const index = this.bookings.findIndex(booking => booking._id === id);
+      this.bookings.slice(index, 1);
+    });
+
+    eventBus.$on('booking-updated', (updatedBooking) => {
+      const index = this.bookings.findIndex(booking => booking._id === updatedBooking._id);
+      this.bucketList.splice(index, 1, updatedBooking);
     });
   },
   methods: {
