@@ -1,12 +1,19 @@
 <template lang="">
-  <form class="" v-on:submit.prevent="addBooking" method="post">
+  <form class="form" v-on:submit.prevent="addBooking" method="post">
     <h2>Add a Booking</h2>
-    <label for="name">Name:</label>
-    <input type="text" v-model="name" required/>
-    <label for="email">Email:</label>
-    <input type="text" v-model="email" required/>
+    <!-- <div class=""> -->
+      <label for="name">Name</label>
+      <input type="text" v-model="name" required/>
+    <!-- </div> -->
+    <br>
+    <!-- <div class=""> -->
+      <label for="email">Email</label>
+      <input type="text" v-model="email" required/>
+    <!-- </div> -->
 
+    <br>
     <input type="submit" value="Add">
+    <br>
   </form>
 </template>
 
@@ -42,4 +49,18 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input[type=submit] {
+    width: 150px;
+  }
+
+  input[type=text] {
+    width: 150px;
+    border: 1px solid black;
+  }
 </style>

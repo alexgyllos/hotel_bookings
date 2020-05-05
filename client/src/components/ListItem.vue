@@ -1,6 +1,7 @@
 <template lang="html">
-<div class="ListItem">
-  <p> Customer Name: {{booking.name}} Customer Email: {{booking.email}}  Customer Checked In:{{booking.checked_in}} </p>
+<div class="ListItem" v-bind:class="{checked_in: booking.checked_in}">
+  <p>Customer Name: {{booking.name}}</p>
+  <p>Customer Email: {{booking.email}}</p>
 <button v-if="!booking.checked_in" v-on:click="updateCheckIn(booking)" type="button" name="button">Check-In</button>
 <button v-on:click="handleDelete" type="button" name="">Delete Booking</button>
 </div>
@@ -29,6 +30,26 @@ methods: {
 </script>
 <style lang="css" scoped>
 .ListItem {
-  border: 0.5px black solid;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  margin: 5px;
+  width: 55vw;
+  height: 30vh;
+}
+
+.checked_in {
+  background-color: rgba(125, 135, 86, 0.5);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+button {
+  width: 150px;
+  align-self: center;
 }
 </style>

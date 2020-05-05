@@ -18,4 +18,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  #BookingList {
+    margin-bottom: 50px;
+  }
 </style>
