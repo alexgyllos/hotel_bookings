@@ -23,8 +23,7 @@ export default {
     this.fetchBookings();
 
     eventBus.$on('booking-added', (booking) => {
-      BookingService.addBooking(booking)
-      .then(booking => bookings.push(booking));
+      this.bookings.push(booking);
     });
 
     eventBus.$on('delete-booking', (id) => {
