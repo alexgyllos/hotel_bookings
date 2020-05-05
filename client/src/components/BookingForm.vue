@@ -2,9 +2,9 @@
   <form class="" v-on:submit.prevent="addBooking" method="post">
     <h2>Add a Booking</h2>
     <label for="name">Name:</label>
-    <input type="text" v-model="name"/>
+    <input type="text" v-model="name" required/>
     <label for="email">Email:</label>
-    <input type="text" v-model="email">
+    <input type="text" v-model="email" required/>
 
     <input type="submit" value="Add">
   </form>
