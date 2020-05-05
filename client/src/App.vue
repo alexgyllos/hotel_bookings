@@ -21,12 +21,25 @@ export default {
   },
   mounted(){
     this.fetchBookings();
+
+    eventBus.$on('booking-added', (booking) => {
+      BookingService.addBooking(booking)
+      .then(booking => bookings.push(booking));
+    });
+
+    eventBus.$on('delete-booking', (id) => {
+      BookingService.deleteBooking(id)
+      .then(() => {
+        const index = this.bookings.findIndex(booking => booking._id === id);
+        this.bookings.slice(index, 1);
+      });
+    });
   },
   methods: {
     fetchBookings() {
       BookingService.getBookings()
       .then(hotelBookings => this.bookings = hotelBookings)
-    }
+    },
   },
   components: {
     'booking-form': BookingForm,
